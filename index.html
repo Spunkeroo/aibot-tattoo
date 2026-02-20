@@ -595,5 +595,15 @@ if (ref) {
   if (typeof gtag === 'function') gtag('event', 'referral_visit', { referral_code: ref, source: SLUG });
 }
 </script>
+<!-- Firebase Visitor Counter -->
+<script>
+(function(){
+  var FB='https://aibot-network-default-rtdb.firebaseio.com';
+  fetch(FB+'/aibot/tattoo/visitors.json').then(function(r){return r.json()}).then(function(d){
+    var c=(d&&d.count)||0;
+    fetch(FB+'/aibot/tattoo/visitors.json',{method:'PATCH',body:JSON.stringify({count:c+1,last:Date.now()})});
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
