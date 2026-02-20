@@ -104,8 +104,6 @@
     .price-card .pc-period{font-size:0.7rem;color:var(--dim);display:block;}
     .price-card .pc-desc{font-size:0.7rem;color:var(--muted);margin-top:0.3rem;}
     .pay-btn{width:100%;padding:0.7rem;border-radius:10px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;transition:all 0.2s;font-family:inherit;margin-bottom:0.5rem;}
-    .pay-btn-stripe{background:var(--accent);color:#fff;}
-    .pay-btn-stripe:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(139,92,246,0.3);}
     .pay-btn-crypto{background:var(--surface);border:1px solid var(--border);color:var(--text);}
     .pay-btn-crypto:hover{border-color:var(--accent);}
     .crypto-details{display:none;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-top:0.5rem;}
@@ -220,7 +218,6 @@
         <div class="pc-desc">Unlimited across ALL bots</div>
       </div>
     </div>
-    <button class="pay-btn pay-btn-stripe" onclick="payStripe()">Pay with Card</button>
     <button class="pay-btn pay-btn-crypto" onclick="toggleCrypto()">Pay with Crypto</button>
     <div class="crypto-details" id="cryptoDetails">
       <div class="crypto-label">Bitcoin (BTC)</div>
@@ -230,7 +227,7 @@
       <div style="font-size:0.65rem;color:var(--muted);margin-top:0.5rem;">Send exact amount + email us at pay@aibot.delivery for activation</div>
     </div>
     <div class="modal-ref">
-      Share &amp; earn! <a href="#" onclick="shareRef();return false;">Get your referral link</a> — 5 free uses for you and your friend.
+      Share &amp; earn! <a href="javascript:void(0)" onclick="shareRef();return false;">Get your referral link</a> — 5 free uses for you and your friend.
     </div>
   </div>
 </div>
@@ -242,7 +239,7 @@
 
 <!-- SHARE ON X -->
 <div style="text-align:center;margin-bottom:1rem;">
-  <a href="#" onclick="shareOnX('');return false;" style="display:inline-flex;align-items:center;gap:0.4rem;background:#000;color:#fff;padding:0.5rem 1.2rem;border-radius:10px;font-size:0.8rem;font-weight:700;border:1px solid #333;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#333'">
+  <a href="javascript:void(0)" onclick="shareOnX('');return false;" style="display:inline-flex;align-items:center;gap:0.4rem;background:#000;color:#fff;padding:0.5rem 1.2rem;border-radius:10px;font-size:0.8rem;font-weight:700;border:1px solid #333;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='#333'">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     Share on X
   </a>
@@ -427,24 +424,12 @@ function showTyping() {
 }
 
 // ============================================================
-// AI RESPONSE GENERATION
+// SMART ASSISTANT RESPONSES
 // ============================================================
-// This generates intelligent responses client-side for the free tier.
-// For production, replace with actual API calls to Claude/OpenAI.
+// Keyword-based smart assistant that matches queries to helpful answers.
 async function generateResponse(query) {
-  // Simulate API delay
-  await new Promise(r => setTimeout(r, 1000 + Math.random() * 1500));
-
-  // Smart template-based responses (free tier)
-  // Replace this entire function with real API call for paid tier:
-  //
-  // const res = await fetch('/api/chat', {
-  //   method: 'POST',
-  //   headers: {'Content-Type': 'application/json'},
-  //   body: JSON.stringify({ message: query, system: SYSTEM_PROMPT })
-  // });
-  // const data = await res.json();
-  // return data.response;
+  // Brief delay for natural feel
+  await new Promise(r => setTimeout(r, 800 + Math.random() * 1000));
 
   return generateSmartResponse(query);
 }
@@ -461,12 +446,9 @@ function generateSmartResponse(query) {
   }
 
   // Default response
-  return `Great question! Here's what ${BOT_NAME} thinks:\n\n` +
-    `Based on your query about "${query.substring(0, 50)}...", here are some key points:\n\n` +
-    `**1. Overview**\nThis is a topic with several important considerations. Let me break it down for you.\n\n` +
-    `**2. Key Factors**\n- Consider your specific needs and context\n- Research current options and pricing\n- Look at reviews and recommendations from trusted sources\n- Compare at least 3 alternatives before deciding\n\n` +
-    `**3. Recommendation**\nFor the most detailed, personalized answer, upgrade to unlimited ${BOT_NAME} access. Our AI will give you specific, actionable advice tailored to your exact situation.\n\n` +
-    `Want a more specific answer? Try asking with more details about your situation!`;
+  return `Here's what I found related to "${query.substring(0, 50)}":\n\n` +
+    `**Key Points**\n- Consider your specific needs and context\n- Research current options and compare pricing\n- Check reviews and recommendations from trusted sources\n- Compare at least 3 alternatives before deciding\n\n` +
+    `**Tip:** Try asking a more specific question and I can give you a more targeted answer! Use keywords related to the topic you need help with.`;
 }
 
 function getResponses() {
@@ -590,12 +572,6 @@ function selectPlan(plan) {
   document.getElementById('planMonth').style.borderColor = plan === 'month' ? 'var(--accent)' : 'var(--border)';
 }
 
-function payStripe() {
-  // Placeholder — integrate Stripe Checkout
-  // window.location.href = `https://checkout.stripe.com/...?plan=${selectedPlan}`;
-  alert('Stripe payments coming soon! For now, use crypto or email contact@' + DOMAIN);
-}
-
 function toggleCrypto() {
   document.getElementById('cryptoDetails').classList.toggle('active');
 }
@@ -631,7 +607,7 @@ if (ref) {
 <!-- Firebase Visitor Counter -->
 <script>
 (function(){
-  var FB='https://aibot-network-default-rtdb.firebaseio.com';
+  var FB='https://predict-network-ec767-default-rtdb.firebaseio.com';
   fetch(FB+'/aibot/tattoo/visitors.json').then(function(r){return r.json()}).then(function(d){
     var c=(d&&d.count)||0;
     fetch(FB+'/aibot/tattoo/visitors.json',{method:'PATCH',body:JSON.stringify({count:c+1,last:Date.now()})});
