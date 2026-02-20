@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>aibot.tattoo — AI tattoo designer — describe your idea, get design concepts</title>
-  <meta name="description" content="Design your dream tattoo with AI. Describe your idea and get detailed concept descriptions, style suggestions, placement advice, and artist tips.">
-  <meta name="keywords" content="AI tattoo designer, tattoo ideas, tattoo design AI, tattoo concept generator, tattoo style guide">
+  <title>aibot.tattoo — AI tattoo designer — describe your idea, get design concepts & advice</title>
+  <meta name="description" content="AI-powered tattoo design ideas, placement guide, style explorer, and aftercare advice. Your personal tattoo consultant.">
+  <meta name="keywords" content="aibot.tattoo, TattooBot, AI bot, tattoo">
   <meta property="og:title" content="aibot.tattoo — TattooBot">
-  <meta property="og:description" content="Design your dream tattoo with AI. Describe your idea and get detailed concept descriptions, style suggestions, placement advice, and artist tips.">
+  <meta property="og:description" content="AI-powered tattoo design ideas, placement guide, style explorer, and aftercare advice. Your personal tattoo consultant.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aibot.tattoo">
-  <meta property="og:image" content="https://aibot.tattoo/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@SpunkArt13">
   <meta name="twitter:title" content="TattooBot — aibot.tattoo">
-  <meta name="twitter:description" content="AI tattoo designer — describe your idea, get design concepts">
+  <meta name="twitter:description" content="AI tattoo designer — describe your idea, get design concepts & advice">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
   <link rel="canonical" href="https://aibot.tattoo">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"TattooBot","url":"https://aibot.tattoo","description":"Design your dream tattoo with AI. Describe your idea and get detailed concept descriptions, style suggestions, placement advice, and artist tips.","applicationCategory":"UtilityApplication","operatingSystem":"Web"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"TattooBot","url":"https://aibot.tattoo","description":"AI-powered tattoo design ideas, placement guide, style explorer, and aftercare advice. Your personal tattoo consultant.","applicationCategory":"UtilityApplication","operatingSystem":"Web"}</script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     :root{
       --bg:#050508;--surface:#0a0a12;--card:#0e0e18;--card-hover:#121220;
       --border:#1a1a2e;--text:#e8e8f0;--dim:#8888a0;--muted:#555568;
-      --accent:#8b5cf6;--accent-glow:rgba(139,92,246,0.12);
+      --accent:#ec4899;--accent-glow:rgba(236,72,153,0.12);
       --green:#10b981;--red:#ef4444;
     }
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh;}
     a{color:var(--accent);text-decoration:none;transition:opacity 0.2s;}
     a:hover{opacity:0.85;}
-
-    /* NAV */
     .nav{position:sticky;top:0;z-index:100;background:rgba(5,5,8,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
     .nav-inner{max-width:1000px;margin:0 auto;padding:0.7rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
     .nav-logo{font-size:1.1rem;font-weight:900;letter-spacing:-0.5px;display:flex;align-items:center;gap:0.4rem;}
@@ -42,18 +39,12 @@
     .nav-uses{font-size:0.75rem;color:var(--dim);font-weight:600;}
     .nav-uses span{color:var(--accent);font-weight:800;}
     .nav-upgrade{background:var(--accent);color:#fff;padding:0.4rem 0.9rem;border-radius:8px;font-size:0.75rem;font-weight:700;border:none;cursor:pointer;transition:all 0.2s;}
-    .nav-upgrade:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(139,92,246,0.3);}
-
-    /* NETWORK BAR */
+    .nav-upgrade:hover{transform:translateY(-1px);box-shadow:0 4px 12px var(--accent-glow);}
     .site-bar{border-bottom:1px solid var(--border);padding:0.6rem 1.5rem;display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;overflow-x:auto;}
     .site-link{display:flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:700;color:var(--dim);transition:color 0.2s;white-space:nowrap;}
     .site-link:hover{color:var(--text);}
     .site-link .dot{width:5px;height:5px;border-radius:50%;display:inline-block;}
-
-    /* MAIN CHAT AREA */
     .chat-container{flex:1;max-width:800px;width:100%;margin:0 auto;padding:1rem 1.5rem;display:flex;flex-direction:column;}
-
-    /* WELCOME */
     .welcome{text-align:center;padding:3rem 0 2rem;flex-shrink:0;}
     .welcome-icon{font-size:3rem;margin-bottom:0.5rem;}
     .welcome h1{font-size:2.2rem;font-weight:900;letter-spacing:-1.5px;margin-bottom:0.3rem;}
@@ -63,8 +54,6 @@
     .example-btn{background:var(--card);border:1px solid var(--border);color:var(--dim);padding:0.5rem 1rem;border-radius:10px;font-size:0.8rem;font-family:inherit;cursor:pointer;transition:all 0.2s;max-width:280px;text-align:left;}
     .example-btn:hover{border-color:var(--accent);color:var(--text);}
     @media(max-width:600px){.welcome h1{font-size:1.7rem;}}
-
-    /* MESSAGES */
     .messages{flex:1;overflow-y:auto;padding:1rem 0;display:flex;flex-direction:column;gap:1rem;}
     .msg{max-width:85%;padding:1rem 1.2rem;border-radius:14px;font-size:0.88rem;line-height:1.6;animation:fadeIn 0.3s ease;}
     .msg-user{background:var(--accent);color:#fff;align-self:flex-end;border-bottom-right-radius:4px;}
@@ -78,18 +67,14 @@
     .typing span:nth-child(3){animation-delay:0.4s;}
     @keyframes bounce{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-8px);}}
     @keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
-
-    /* INPUT */
     .input-area{padding:1rem 0;border-top:1px solid var(--border);flex-shrink:0;}
     .input-wrap{display:flex;gap:0.5rem;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:0.5rem;transition:border-color 0.2s;}
     .input-wrap:focus-within{border-color:var(--accent);}
     .input-wrap input{flex:1;background:transparent;border:none;color:var(--text);font-size:0.9rem;font-family:inherit;padding:0.4rem 0.6rem;outline:none;}
     .input-wrap input::placeholder{color:var(--muted);}
     .send-btn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:0.5rem 1rem;font-weight:700;font-size:0.85rem;cursor:pointer;transition:all 0.2s;font-family:inherit;}
-    .send-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(139,92,246,0.3);}
+    .send-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px var(--accent-glow);}
     .send-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
-
-    /* PAYWALL MODAL */
     .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:500;display:none;align-items:center;justify-content:center;padding:1.5rem;}
     .modal-overlay.active{display:flex;}
     .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;max-width:500px;width:100%;padding:2rem;text-align:center;position:relative;}
@@ -107,7 +92,7 @@
     .price-card .pc-desc{font-size:0.7rem;color:var(--muted);margin-top:0.3rem;}
     .pay-btn{width:100%;padding:0.7rem;border-radius:10px;font-weight:700;font-size:0.9rem;border:none;cursor:pointer;transition:all 0.2s;font-family:inherit;margin-bottom:0.5rem;}
     .pay-btn-stripe{background:var(--accent);color:#fff;}
-    .pay-btn-stripe:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(139,92,246,0.3);}
+    .pay-btn-stripe:hover{transform:translateY(-1px);box-shadow:0 4px 12px var(--accent-glow);}
     .pay-btn-crypto{background:var(--surface);border:1px solid var(--border);color:var(--text);}
     .pay-btn-crypto:hover{border-color:var(--accent);}
     .crypto-details{display:none;text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;margin-top:0.5rem;}
@@ -117,8 +102,6 @@
     .modal-ref{font-size:0.75rem;color:var(--dim);margin-top:1rem;}
     .modal-ref a{color:var(--accent);}
     @media(max-width:500px){.pricing-cards{flex-direction:column;}}
-
-    /* FOOTER */
     .footer{border-top:1px solid var(--border);padding:1.5rem;text-align:center;}
     .footer-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:0.75rem;}
     .footer-links a{color:var(--muted);font-size:0.7rem;font-weight:600;}
@@ -128,11 +111,9 @@
 </head>
 <body>
 
-<!-- GA -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GVNL11PEGP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-GVNL11PEGP');</script>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <div class="nav-logo">🎨 <span class="accent">TattooBot</span></div>
@@ -143,53 +124,50 @@
   </div>
 </nav>
 
-<!-- NETWORK BAR -->
 <div class="site-bar">
-  <a href="https://aibot.delivery" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#f59e0b;"></span>📦 aibot.delivery</a>
-    <a href="https://aibot.directory" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#6366f1;"></span>📂 aibot.directory</a>
-    <a href="https://aibot.forum" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#ec4899;"></span>💬 aibot.forum</a>
-    <a href="https://aibot.garden" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#10b981;"></span>🌱 aibot.garden</a>
-    <a href="https://aibot.gay" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#a855f7;"></span>🏳️‍🌈 aibot.gay</a>
-    <a href="https://aibot.poker" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#ef4444;"></span>🃏 aibot.poker</a>
-    <a href="https://aibot.rest" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#f97316;"></span>🍽️ aibot.rest</a>
-    <a href="https://aibot.study" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#3b82f6;"></span>📚 aibot.study</a>
-    <span class="site-link" style="color:var(--text);"><span class="dot" style="background:#8b5cf6;"></span>🎨 aibot.tattoo</span>
-    <a href="https://aibot.beer" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#d97706;"></span>🍺 aibot.beer</a>
-    <a href="https://aibot.coupons" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#10b981;"></span>🏷️ aibot.coupons</a>
-    <a href="https://aibot.courses" class="site-link" target="_blank" rel="noopener noreferrer"><span class="dot" style="background:#14b8a6;"></span>🎓 aibot.courses</a>
+  <a href="https://aibot.beer" class="site-link"><span class="dot" style="background:#d97706;"></span>aibot.beer</a>
+  <a href="https://aibot.coupons" class="site-link"><span class="dot" style="background:#10b981;"></span>aibot.coupons</a>
+  <a href="https://aibot.courses" class="site-link"><span class="dot" style="background:#14b8a6;"></span>aibot.courses</a>
+  <a href="https://aibot.tattoo" class="site-link" style="color:var(--text);"><span class="dot" style="background:#ec4899;"></span>aibot.tattoo</a>
+  <a href="https://aibot.garden" class="site-link"><span class="dot" style="background:#22c55e;"></span>aibot.garden</a>
+  <a href="https://aibot.study" class="site-link"><span class="dot" style="background:#3b82f6;"></span>aibot.study</a>
+  <a href="https://aibot.poker" class="site-link"><span class="dot" style="background:#ef4444;"></span>aibot.poker</a>
+  <a href="https://aibot.rest" class="site-link"><span class="dot" style="background:#f97316;"></span>aibot.rest</a>
+  <a href="https://aibot.delivery" class="site-link"><span class="dot" style="background:#06b6d4;"></span>aibot.delivery</a>
+  <a href="https://aibot.directory" class="site-link"><span class="dot" style="background:#8b5cf6;"></span>aibot.directory</a>
+  <a href="https://aibot.forum" class="site-link"><span class="dot" style="background:#eab308;"></span>aibot.forum</a>
+  <a href="https://aibot.gay" class="site-link"><span class="dot" style="background:#e879f9;"></span>aibot.gay</a>
+  <a href="https://betai.buzz" class="site-link"><span class="dot" style="background:#ff5f1f;"></span>betai.buzz</a>
+  <span style="color:var(--muted);padding:0 0.3rem;">|</span>
+  <a href="https://stake.com/?c=MyXSehCn" class="site-link" target="_blank" rel="noopener" style="color:#1475e1;">Stake.com</a>
+  <a href="https://spunk.bet" class="site-link" target="_blank" rel="noopener"><span class="dot" style="background:#ff5f1f;"></span>spunk.bet</a>
+  <a href="https://predict.pics" class="site-link" target="_blank" rel="noopener"><span class="dot" style="background:#a855f7;"></span>predict.pics</a>
 </div>
 
-<!-- CHAT CONTAINER -->
 <div class="chat-container">
-  <!-- WELCOME -->
   <div class="welcome" id="welcome">
     <div class="welcome-icon">🎨</div>
     <h1>Tattoo<span class='gr'>Bot</span></h1>
-    <p>Describe your tattoo idea. Get detailed design concepts, style suggestions, placement advice, and artist tips.</p>
+    <p>AI-powered tattoo design ideas, placement guide, style explorer, and aftercare advice. Your personal tattoo consultant.</p>
     <div class="examples">
-      <button class="example-btn" onclick="askExample(this.textContent)">Design a memorial tattoo for my grandmother who loved roses</button>
-      <button class="example-btn" onclick="askExample(this.textContent)">What tattoo style would work best for a wolf design?</button>
-      <button class="example-btn" onclick="askExample(this.textContent)">Small meaningful tattoo ideas for first-timers</button>
-      <button class="example-btn" onclick="askExample(this.textContent)">How much would a half-sleeve nature theme cost?</button>
+      <button class="example-btn" onclick="askExample(this.textContent)">I want a small minimalist tattoo for my first — what do you recommend?</button>
+      <button class="example-btn" onclick="askExample(this.textContent)">Best placement for a quote tattoo that I can hide at work?</button>
+      <button class="example-btn" onclick="askExample(this.textContent)">Compare watercolor vs fine line style for a floral piece</button>
+      <button class="example-btn" onclick="askExample(this.textContent)">How much should a half sleeve cost and how long does it take?</button>
     </div>
   </div>
-
-  <!-- MESSAGES -->
   <div class="messages" id="messages"></div>
-
-  <!-- INPUT -->
   <div class="input-area">
     <div class="input-wrap">
-      <input type="text" id="userInput" placeholder="e.g., A minimalist mountain range tattoo for my forearm" autocomplete="off">
+      <input type="text" id="userInput" placeholder="e.g., I want a sleeve with Japanese koi fish and cherry blossoms" autocomplete="off">
       <button class="send-btn" id="sendBtn" onclick="sendMessage()">Ask TattooBot</button>
     </div>
   </div>
 </div>
 
-<!-- PAYWALL MODAL -->
 <div class="modal-overlay" id="paywallModal" onclick="if(event.target===this)closePaywall()">
   <div class="modal">
-    <div class="modal-close" onclick="closePaywall()">✕</div>
+    <div class="modal-close" onclick="closePaywall()">&#10005;</div>
     <h2>🎨 Unlock Unlimited TattooBot</h2>
     <p>You've used your 3 free daily queries. Upgrade for unlimited access.</p>
     <div class="pricing-cards">
@@ -211,7 +189,7 @@
       <div class="crypto-addr" onclick="copyAddr(this)" title="Click to copy">bc1pkepg42ctsvsxk499qu02qqyyz88gwjchnjpsu22wmng9rhpfv3jqw2t2hm</div>
       <div class="crypto-label">Ethereum (ETH)</div>
       <div class="crypto-addr" onclick="copyAddr(this)" title="Click to copy">0xD2aC89253b5F20f5b03b5B591297Fa4FCC37d41c</div>
-      <div style="font-size:0.65rem;color:var(--muted);margin-top:0.5rem;">Send exact amount + email us at pay@aibot.delivery for activation</div>
+      <div style="font-size:0.65rem;color:var(--muted);margin-top:0.5rem;">Send exact amount + email us at contact@spunkart.com for activation</div>
     </div>
     <div class="modal-ref">
       Share &amp; earn! <a href="#" onclick="shareRef();return false;">Get your referral link</a> — 5 free uses for you and your friend.
@@ -219,382 +197,159 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-links">
-    <a href="https://aibot.delivery">aibot.delivery</a>
-    <a href="https://aibot.directory">aibot.directory</a>
-    <a href="https://aibot.forum">aibot.forum</a>
-    <a href="https://aibot.garden">aibot.garden</a>
-    <a href="https://aibot.gay">aibot.gay</a>
-    <a href="https://aibot.poker">aibot.poker</a>
-    <a href="https://aibot.rest">aibot.rest</a>
-    <a href="https://aibot.study">aibot.study</a>
+  <div class="footer-links" style="margin-bottom:0.3rem">
     <a href="https://aibot.beer">aibot.beer</a>
     <a href="https://aibot.coupons">aibot.coupons</a>
     <a href="https://aibot.courses">aibot.courses</a>
-    <a href="https://coinbase.com/join/YAGES3X?src=referral-link" target="_blank" rel="noopener sponsored" style="color:#0052ff;font-weight:600;">Buy Crypto</a>
+    <a href="https://aibot.tattoo">aibot.tattoo</a>
+    <a href="https://aibot.garden">aibot.garden</a>
+    <a href="https://aibot.study">aibot.study</a>
+    <a href="https://aibot.poker">aibot.poker</a>
+    <a href="https://aibot.rest">aibot.rest</a>
+    <a href="https://aibot.delivery">aibot.delivery</a>
+    <a href="https://aibot.directory">aibot.directory</a>
+    <a href="https://aibot.forum">aibot.forum</a>
+    <a href="https://aibot.gay">aibot.gay</a>
+    <a href="https://betai.buzz">betai.buzz</a>
+  </div>
+  <div class="footer-links" style="margin-bottom:0.3rem;font-size:0.6rem">
+    <a href="https://predict.pics">predict.pics</a>
+    <a href="https://predict.horse">predict.horse</a>
+    <a href="https://scam.video">scam.video</a>
+    <a href="https://stimulant.wiki">stimulant.wiki</a>
+    <a href="https://spunk.bet" style="color:#ff5f1f">spunk.bet</a>
+    <a href="https://spunkart.com">spunkart.com</a>
+  </div>
+  <div class="footer-links">
+    <a href="https://stake.com/?c=MyXSehCn" target="_blank" rel="noopener sponsored" style="color:#1475e1;font-weight:700;">Stake.com</a>
+    <a href="https://shuffle.com?r=q94atl9m05" target="_blank" rel="noopener sponsored" style="color:#7c3aed;font-weight:700;">Shuffle</a>
+    <a href="https://stake.us/?c=L2a8nG6c" target="_blank" rel="noopener sponsored" style="color:#00c74d;font-weight:600;">Stake.us</a>
+    <a href="https://winna.com/?r=Spunkeroo" target="_blank" rel="noopener sponsored" style="color:#ff5f1f;font-weight:600;">Winna.com</a>
+    <a href="https://www.888poker.com/" target="_blank" rel="noopener sponsored" style="color:#e5a100;font-weight:600;">888poker</a>
+    <a href="https://coinbase.com/join/YAGES3X" target="_blank" rel="noopener sponsored" style="color:#0052ff;font-weight:600;">Buy Crypto</a>
     <a href="https://shop.ledger.com/?r=0553c9ea1441" target="_blank" rel="noopener sponsored" style="color:#ff5500;font-weight:600;">Secure Crypto</a>
     <a href="https://kalshi.com/sign-up/?referral=6b723b42-d0c9-4421-9b4e-5af4b4c6c42c" target="_blank" rel="noopener sponsored" style="color:#00d084;font-weight:600;">Kalshi</a>
+    <a href="https://customgpt.ai/?fpr=spunk" target="_blank" rel="noopener sponsored" style="color:#06b6d4;font-weight:600;">CustomGPT</a>
     <a href="https://everyx.io/register?ref=AYHl4YqvjcaX" target="_blank" rel="noopener sponsored" style="color:#a855f7;font-weight:600;">EveryX</a>
-    <a href="https://winna.com/?r=Spunkeroo" target="_blank" rel="noopener sponsored" style="color:#ff5f1f;font-weight:600;">Winna.com</a>
-    <a href="https://stake.us/?c=L2a8nG6c" target="_blank" rel="noopener sponsored" style="color:#00c74d;font-weight:600;">Stake.us</a>
-    <a href="https://spunk.bet" target="_blank" rel="noopener sponsored" style="color:#ff5f1f;font-weight:600;">Spunk.Bet</a>
     <a href="https://x.com/SpunkArt13" target="_blank" rel="noopener noreferrer">@SpunkArt13</a>
   </div>
   <div class="footer-copy">&copy; 2026 aibot.tattoo — TattooBot by @SpunkArt13 | <a href="https://spunkart.com">SpunkArt.com</a></div>
+  <div style="max-width:500px;margin:2rem auto;padding:1.5rem;background:#0a0a12;border:1px solid #1a1a2e;border-radius:12px;text-align:center;">
+    <h3 style="margin:0 0 0.5rem;font-size:1rem;color:#e8e8f0;">Stay Updated</h3>
+    <p style="margin:0 0 1rem;font-size:0.8rem;color:#8888a0;">Get the latest tips, deals, and updates. No spam, ever.</p>
+    <iframe src="https://embeds.beehiiv.com/6831d05b-f121-4e0d-951b-16f88ddd9ec3?slim=true" data-test-id="beehiiv-embed" height="52" frameborder="0" scrolling="no" style="margin:0;border-radius:8px;background-color:transparent;width:100%;max-width:400px;"></iframe>
+  </div>
 </footer>
 
 <script>
-// ============================================================
-// CONFIG
-// ============================================================
 const BOT_NAME = 'TattooBot';
 const DOMAIN = 'aibot.tattoo';
 const SLUG = 'tattoo';
-const SHARE_TEXT = 'TattooBot designed my dream tattoo concept! 🎨';
-const SYSTEM_PROMPT = `You are TattooBot, an AI tattoo design assistant. Help users conceptualize tattoo designs based on their ideas, suggest styles (traditional, neo-traditional, blackwork, watercolor, minimalist, etc.), recommend placement, estimate sizing and pricing, and provide tips for choosing an artist. Describe designs in vivid detail. Consider meaning, aesthetics, and aging.`;
+const SHARE_TEXT = 'TattooBot designed my next tattoo and it looks amazing!';
 const FREE_USES = 3;
 const REFERRAL_BONUS = 5;
 
-// ============================================================
-// USAGE TRACKING (localStorage + fingerprint)
-// ============================================================
-function getToday() {
-  return new Date().toISOString().split('T')[0];
+function getToday(){return new Date().toISOString().split('T')[0];}
+function getUsage(){const d=JSON.parse(localStorage.getItem('aibot_usage')||'{}');if(d.date!==getToday()){d.date=getToday();d.count=0;localStorage.setItem('aibot_usage',JSON.stringify(d));}return d;}
+function incrementUsage(){const d=getUsage();d.count++;localStorage.setItem('aibot_usage',JSON.stringify(d));updateUsageDisplay();return d.count;}
+function getRemainingUses(){const d=getUsage();const b=parseInt(localStorage.getItem('aibot_bonus')||'0');return FREE_USES+b-d.count;}
+function isPaid(){const s=JSON.parse(localStorage.getItem('aibot_subscription')||'{}');if(s.type==='month'&&new Date(s.expires)>new Date())return true;if(s.type==='day'&&new Date(s.expires)>new Date())return true;return false;}
+function updateUsageDisplay(){const d=getUsage();const b=parseInt(localStorage.getItem('aibot_bonus')||'0');document.getElementById('useCount').textContent=d.count;document.getElementById('useMax').textContent=isPaid()?'\u221e':FREE_USES+b;}
+
+const messagesEl=document.getElementById('messages');
+const welcomeEl=document.getElementById('welcome');
+const inputEl=document.getElementById('userInput');
+const sendBtn=document.getElementById('sendBtn');
+
+function askExample(text){inputEl.value=text;sendMessage();}
+
+async function sendMessage(){
+  const text=inputEl.value.trim();if(!text)return;
+  if(!isPaid()&&getRemainingUses()<=0){showPaywall();return;}
+  welcomeEl.style.display='none';
+  addMessage(text,'user');inputEl.value='';sendBtn.disabled=true;
+  const typingEl=showTyping();incrementUsage();
+  try{const r=await generateResponse(text);typingEl.remove();addBotMessage(r);}
+  catch(e){typingEl.remove();addBotMessage("Sorry, I'm having trouble right now. Please try again.");}
+  sendBtn.disabled=false;inputEl.focus();
 }
 
-function getUsage() {
-  const data = JSON.parse(localStorage.getItem('aibot_usage') || '{}');
-  if (data.date !== getToday()) {
-    data.date = getToday();
-    data.count = 0;
-    localStorage.setItem('aibot_usage', JSON.stringify(data));
+function addMessage(text,type){const m=document.createElement('div');m.className=`msg msg-${type}`;m.textContent=text;messagesEl.appendChild(m);messagesEl.scrollTop=messagesEl.scrollHeight;}
+
+function addBotMessage(text){
+  const m=document.createElement('div');m.className='msg msg-bot';
+  let f=text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n- /g,'\n\u2022 ').replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
+  m.innerHTML=`<div>${f}</div><div class="msg-actions"><button class="msg-action" onclick="shareOnX()">Share on X</button><button class="msg-action" onclick="copyResponse(this)">Copy</button></div>`;
+  messagesEl.appendChild(m);messagesEl.scrollTop=messagesEl.scrollHeight;
+}
+
+function showTyping(){const t=document.createElement('div');t.className='typing';t.innerHTML='<span></span><span></span><span></span>';messagesEl.appendChild(t);messagesEl.scrollTop=messagesEl.scrollHeight;return t;}
+
+async function generateResponse(q){await new Promise(r=>setTimeout(r,800+Math.random()*1200));return generateSmartResponse(q);}
+
+function generateSmartResponse(query){
+  const q=query.toLowerCase();const responses=getResponses();
+  let bestMatch=null,bestScore=0;
+  for(const [keywords,response] of responses){
+    const score=keywords.filter(k=>q.includes(k)).length;
+    if(score>bestScore){bestScore=score;bestMatch=response;}
   }
-  return data;
+  if(bestMatch)return bestMatch;
+  return generateContextualResponse(query);
 }
 
-function incrementUsage() {
-  const data = getUsage();
-  data.count++;
-  localStorage.setItem('aibot_usage', JSON.stringify(data));
-  updateUsageDisplay();
-  return data.count;
+function getResponses(){
+  return [
+
+  [["first", "beginner", "small", "minimalist", "simple"], `**First Tattoo Guide**\n\n**Best Placements for First Timers:**\n- Inner forearm (low pain, easy to show/hide)\n- Upper arm/shoulder (moderate pain, versatile)\n- Calf (low pain, good canvas)\n- Wrist (small pieces, visible)\n\n**Avoid for First Tattoo:**\n- Ribs, spine, feet, hands (HIGH pain areas)\n- Behind ear (trendy but limited space)\n- Stomach (changes with weight)\n\n**Popular Minimalist Ideas:**\n- Fine line geometric shapes\n- Small floral (wildflower, lavender)\n- Single word or date in clean font\n- Mountain/wave/tree silhouette\n- Constellation or zodiac\n\n**Pricing:**\n- Shop minimum: $80-150\n- Small piece (2-3 inches): $100-250\n- Medium piece (4-6 inches): $250-500\n\n**Tips:**\n- Research artists whose STYLE matches what you want\n- Don't go cheap — you wear this forever\n- Tip your artist 20%\n- Follow aftercare instructions EXACTLY`],
+  [["style", "traditional", "realism", "watercolor", "blackwork", "fine line", "japanese", "tribal"], `**Tattoo Style Guide**\n\n**Major Styles:**\n\n1. **Traditional (Old School)**: Bold outlines, limited palette (red, green, yellow, black). Iconic: eagles, roses, skulls. Ages best.\n2. **Neo-Traditional**: Traditional with more detail, shading, and color range.\n3. **Realism**: Photorealistic portraits, nature. Requires VERY skilled artist. Expensive but stunning.\n4. **Blackwork**: Pure black ink. Geometric, tribal, ornamental. Ages well.\n5. **Watercolor**: Splashy, painted look. Beautiful but may fade faster. Needs touch-ups.\n6. **Fine Line**: Delicate, thin lines. Minimalist. Can blur over time — find a specialist.\n7. **Japanese (Irezumi)**: Full sleeves/back pieces, koi, dragons, waves. Most respected tradition.\n8. **Dotwork**: Built from dots. Geometric, mandala, stippled. Unique and mesmerizing.\n9. **Chicano**: Black and grey, religious imagery, script. Originated in LA.\n10. **Trash Polka**: Red and black, collage-style. Bold and modern.\n\n**Best Aging Styles:** Traditional > Japanese > Blackwork > Neo-Trad\n**Most Popular 2026:** Fine line, micro-realism, neo-traditional, geometric`],
+  [["pain", "hurt", "painful", "worst", "most painful"], `**Tattoo Pain Guide**\n\n**Pain Scale by Body Part (1-10):**\n\n**Low Pain (2-4):**\n- Outer arm/shoulder\n- Outer thigh\n- Calf\n- Upper back\n\n**Moderate Pain (5-6):**\n- Inner forearm\n- Upper chest\n- Shin\n- Lower back\n\n**High Pain (7-8):**\n- Ribs/side torso\n- Inner bicep\n- Knee/elbow ditch\n- Neck\n\n**Extreme Pain (9-10):**\n- Spine\n- Sternum\n- Armpit\n- Feet/toes\n- Kneecap\n- Hands/fingers\n\n**Tips to Reduce Pain:**\n- Eat a good meal beforehand\n- Stay hydrated\n- Avoid alcohol 24hrs before\n- Use numbing cream (Dr. Numb, TKTX) — ask artist first\n- Take breaks every 2-3 hours\n- Breathe through it — it gets easier after first 15 min`],
+  [["cost", "price", "expensive", "cheap", "how much", "afford"], `**Tattoo Pricing Guide 2026**\n\n**By Size:**\n- Tiny (1-2 inch): $80-150 (shop minimum)\n- Small (2-4 inch): $150-300\n- Medium (4-6 inch): $300-700\n- Large (6-10 inch): $700-1500\n- Half sleeve: $1500-4000\n- Full sleeve: $3000-8000+\n- Full back: $5000-15000+\n\n**By Method:**\n- Hourly rate: $100-300/hr (avg $150-200)\n- Flat rate: Common for smaller pieces\n- Day rate: $800-2000 for large sessions\n\n**What Affects Price:**\n- Artist experience & demand\n- Style complexity (realism costs more)\n- Color vs black & grey\n- Location (NYC/LA costs more)\n- Custom vs flash design\n\n**Never Cheap Out On:**\n- Cover-ups (pay for quality)\n- Realism portraits\n- Anything on visible skin\n\n**Tip:** Always tip 20% — artists remember good clients`],
+  [["aftercare", "healing", "care", "wash", "lotion", "peel"], `**Tattoo Aftercare Guide**\n\n**Day 1-3 (Fresh):**\n- Keep bandage on 2-4 hours (or as artist says)\n- Wash gently with unscented antibacterial soap\n- Pat dry — NEVER rub\n- Apply thin layer of Aquaphor or artist-recommended ointment\n- Wash 2-3x daily\n\n**Day 4-14 (Peeling):**\n- Switch to unscented lotion (Lubriderm, CeraVe)\n- DO NOT pick or scratch peeling skin\n- Keep moisturized but don't over-apply\n- Wear loose clothing over tattoo\n\n**Week 2-4 (Healing):**\n- Continue moisturizing daily\n- Still avoid swimming/soaking\n- Light itching is normal — slap don't scratch\n\n**NEVER DO:**\n- Submerge in water (pools, baths, ocean) for 3-4 weeks\n- Direct sunlight on fresh tattoo\n- Pick at scabs or peeling skin\n- Apply Neosporin (can cause allergic reaction)\n- Over-moisturize (causes breakouts)\n\n**Long-term:** Always use SPF 50+ on tattoos in the sun. Sun is the #1 enemy of tattoo longevity.`],
+  [["sleeve", "half sleeve", "full sleeve", "arm"], `**Sleeve Tattoo Guide**\n\n**Types:**\n- **Quarter sleeve**: Shoulder to mid-bicep ($500-1500)\n- **Half sleeve**: Shoulder to elbow ($1500-4000)\n- **3/4 sleeve**: Shoulder to mid-forearm ($3000-6000)\n- **Full sleeve**: Shoulder to wrist ($3000-8000+)\n\n**Planning Your Sleeve:**\n1. Choose ONE cohesive theme or style\n2. Find an artist who specializes in that style\n3. Plan the whole sleeve before starting (even if done in sessions)\n4. Consider how pieces flow together\n5. Leave room for background/filler elements\n\n**Popular Sleeve Themes:**\n- Japanese (koi, dragons, waves, cherry blossoms)\n- Nature (forest, mountains, animals, flowers)\n- Geometric/sacred geometry\n- Biomechanical\n- Black and grey realism\n- Traditional/neo-traditional patchwork\n\n**Timeline:** Most sleeves take 3-6 sessions over 6-18 months\n**Sessions:** Usually 4-6 hours each with 3-4 weeks healing between`],
+  [["cover", "coverup", "cover up", "remove", "removal", "laser"], `**Cover-Up & Removal Options**\n\n**Cover-Up Tattoos:**\n- Larger and darker than the original\n- Dark colors (black, navy, deep red) cover best\n- Some artists specialize in cover-ups — find one\n- Cost: Usually 1.5-2x a normal tattoo of same size\n- Tip: Get laser lightening first for better results\n\n**Laser Removal:**\n- PicoSure or Q-switched lasers work best\n- 6-12+ sessions, 6-8 weeks apart\n- Cost: $200-500 per session\n- Total: $1200-6000+ for full removal\n- Black ink removes easiest\n- Green and blue are hardest to remove\n- Older tattoos remove easier than new\n\n**Laser Lightening + Cover-Up:**\n- Best of both worlds\n- 2-4 laser sessions to fade\n- Then cover with new design\n- More design options than straight cover-up`],
+  [["idea", "design", "what should", "meaning", "symbol", "inspiration"], `**Tattoo Design Inspiration**\n\n**Meaningful Symbols:**\n- Semicolon (;) — mental health awareness, "my story isn't over"\n- Lotus flower — growth through adversity\n- Phoenix — rebirth and transformation\n- Compass — finding your way, adventure\n- Anchor — stability, grounding\n- Waves — going with the flow, ocean love\n- Mountains — overcoming challenges\n- Arrow — moving forward, direction\n\n**Trending in 2026:**\n- Micro-realism (tiny photorealistic pieces)\n- Illustrative botanical (detailed plant drawings)\n- Patchwork sleeves (individual pieces that work together)\n- AI-generated designs (bring to artist for refinement)\n- Abstract watercolor splashes\n- Negative space designs\n- Single needle portraits\n\n**Where to Find Ideas:**\n- Instagram: Search #tattoo + your style\n- Pinterest: Create a mood board\n- Tattoodo app: Browse by style and artist\n- Your artist's portfolio — pick someone whose existing work you LOVE`]
+
+  ];
 }
 
-function getRemainingUses() {
-  const data = getUsage();
-  const bonus = parseInt(localStorage.getItem('aibot_bonus') || '0');
-  const maxUses = FREE_USES + bonus;
-  return maxUses - data.count;
-}
 
-function isPaid() {
-  const sub = JSON.parse(localStorage.getItem('aibot_subscription') || '{}');
-  if (sub.type === 'month' && new Date(sub.expires) > new Date()) return true;
-  if (sub.type === 'day' && new Date(sub.expires) > new Date()) return true;
-  return false;
-}
-
-function updateUsageDisplay() {
-  const data = getUsage();
-  const bonus = parseInt(localStorage.getItem('aibot_bonus') || '0');
-  const maxUses = FREE_USES + bonus;
-  document.getElementById('useCount').textContent = data.count;
-  document.getElementById('useMax').textContent = isPaid() ? '∞' : maxUses;
-}
-
-// ============================================================
-// CHAT FUNCTIONALITY
-// ============================================================
-const messagesEl = document.getElementById('messages');
-const welcomeEl = document.getElementById('welcome');
-const inputEl = document.getElementById('userInput');
-const sendBtn = document.getElementById('sendBtn');
-
-function askExample(text) {
-  inputEl.value = text;
-  sendMessage();
-}
-
-async function sendMessage() {
-  const text = inputEl.value.trim();
-  if (!text) return;
-
-  // Check usage
-  if (!isPaid() && getRemainingUses() <= 0) {
-    showPaywall();
-    return;
-  }
-
-  // Hide welcome, show messages
-  welcomeEl.style.display = 'none';
-
-  // Add user message
-  addMessage(text, 'user');
-  inputEl.value = '';
-  sendBtn.disabled = true;
-
-  // Show typing indicator
-  const typingEl = showTyping();
-
-  // Increment usage
-  incrementUsage();
-
-  // Generate AI response (simulated — replace with real API call)
-  try {
-    const response = await generateResponse(text);
-    typingEl.remove();
-    addBotMessage(response);
-  } catch (err) {
-    typingEl.remove();
-    addBotMessage("Sorry, I'm having trouble right now. Please try again in a moment.");
-  }
-
-  sendBtn.disabled = false;
-  inputEl.focus();
-}
-
-function addMessage(text, type) {
-  const msg = document.createElement('div');
-  msg.className = `msg msg-${type}`;
-  msg.textContent = text;
-  messagesEl.appendChild(msg);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
-
-function addBotMessage(text) {
-  const msg = document.createElement('div');
-  msg.className = 'msg msg-bot';
-
-  // Format response (basic markdown-like formatting)
-  let formatted = text
-    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\n- /g, '\n• ')
-    .replace(/\n\n/g, '<br><br>')
-    .replace(/\n/g, '<br>');
-
-  msg.innerHTML = `
-    <div>${formatted}</div>
-    <div class="msg-actions">
-      <button class="msg-action" onclick="shareOnX('${encodeURIComponent(text.substring(0, 100))}')">Share on X</button>
-      <button class="msg-action" onclick="copyResponse(this)">Copy</button>
-    </div>
-  `;
-  messagesEl.appendChild(msg);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-}
-
-function showTyping() {
-  const typing = document.createElement('div');
-  typing.className = 'typing';
-  typing.innerHTML = '<span></span><span></span><span></span>';
-  messagesEl.appendChild(typing);
-  messagesEl.scrollTop = messagesEl.scrollHeight;
-  return typing;
-}
-
-// ============================================================
-// AI RESPONSE GENERATION
-// ============================================================
-// This generates intelligent responses client-side for the free tier.
-// For production, replace with actual API calls to Claude/OpenAI.
-async function generateResponse(query) {
-  // Simulate API delay
-  await new Promise(r => setTimeout(r, 1000 + Math.random() * 1500));
-
-  // Smart template-based responses (free tier)
-  // Replace this entire function with real API call for paid tier:
-  //
-  // const res = await fetch('/api/chat', {
-  //   method: 'POST',
-  //   headers: {'Content-Type': 'application/json'},
-  //   body: JSON.stringify({ message: query, system: SYSTEM_PROMPT })
-  // });
-  // const data = await res.json();
-  // return data.response;
-
-  return generateSmartResponse(query);
-}
-
-function generateSmartResponse(query) {
+function generateContextualResponse(query) {
   const q = query.toLowerCase();
-  const responses = getResponses();
-
-  // Try to match a keyword-based response
-  for (const [keywords, response] of responses) {
-    if (keywords.some(k => q.includes(k))) {
-      return response;
+  // Detect body part
+  const parts = {'arm':'Arm tattoos are versatile — inner forearm for visibility, outer for easy hiding. Pain: 3-5/10. Great for text, small designs, or starting a sleeve.','leg':'Leg tattoos offer a large canvas. Thigh = low pain (3/10), shin = moderate (6/10), calf = low (4/10). Great for larger pieces.','back':'Back pieces range from small upper back designs ($200-500) to full back murals ($5000-15000+). Low-moderate pain except spine (9/10).','chest':'Chest tattoos are bold statements. Moderate pain (5-6/10), sternum is intense (8/10). Popular: script, eagles, sacred geometry.','neck':'Neck tattoos are highly visible and painful (7-8/10). Consider career impact. Popular: small symbols, script, behind-ear designs.','hand':'Hand tattoos fade faster due to skin type and washing. Need frequent touch-ups. Pain: 8/10. Many shops won\'t do hands as a first tattoo.','finger':'Finger tattoos look amazing fresh but fade significantly within 1-2 years. Expect touch-ups. Simple designs work best — dots, lines, small symbols.','rib':'Rib tattoos are among the most painful (8-9/10). But they look incredible. Best for script, florals, or flowing designs. Plan for a longer session with breaks.','wrist':'Wrist tattoos are popular for small, meaningful pieces. Moderate pain (5/10). Inner wrist is slightly more painful. Great for symbols, dates, small text.','ankle':'Ankle tattoos: moderate-high pain (6-7/10) due to thin skin over bone. Popular for small wraps, bracelets, and delicate designs.'};
+  for (const [part, advice] of Object.entries(parts)) {
+    if (q.includes(part)) {
+      return `**${part.charAt(0).toUpperCase()+part.slice(1)} Tattoo Guide**\n\n${advice}\n\n**Popular ${part.charAt(0).toUpperCase()+part.slice(1)} Designs:**\n- Fine line florals and botanicals\n- Geometric patterns\n- Script and quotes\n- Small symbols and icons\n- Black and grey realism\n\n**Tips:**\n- Bring reference photos to your consultation\n- Trust your artist's placement advice\n- Consider how it flows with your body\n- Think about future additions\n\n**Cost estimate:** $${part==='finger'||part==='wrist'?'80-300':part==='back'?'500-15000+':'200-2000+'} depending on size and detail.\n\nWant specific design ideas for your ${part}? Tell me more about your style!`;
     }
   }
-
-  // Default response
-  return `Great question! Here's what ${BOT_NAME} thinks:\n\n` +
-    `Based on your query about "${query.substring(0, 50)}...", here are some key points:\n\n` +
-    `**1. Overview**\nThis is a topic with several important considerations. Let me break it down for you.\n\n` +
-    `**2. Key Factors**\n- Consider your specific needs and context\n- Research current options and pricing\n- Look at reviews and recommendations from trusted sources\n- Compare at least 3 alternatives before deciding\n\n` +
-    `**3. Recommendation**\nFor the most detailed, personalized answer, upgrade to unlimited ${BOT_NAME} access. Our AI will give you specific, actionable advice tailored to your exact situation.\n\n` +
-    `Want a more specific answer? Try asking with more details about your situation!`;
+  // Generic helpful response
+  const topic = query.substring(0, 60);
+  return `**TattooBot's Take: "${topic}"**\n\nGreat question! Here's my advice:\n\n**Getting the Best Tattoo:**\n1. **Find the right artist** — browse portfolios on Instagram, look for consistency in the STYLE you want\n2. **Book a consultation** — good artists want to meet you first\n3. **Bring references** — photos of styles, placements, and ideas you like\n4. **Trust the process** — your artist may suggest changes for better results\n5. **Budget properly** — good tattoos aren't cheap, cheap tattoos aren't good\n\n**Average Pricing:**\n- Small (2-3"): $150-300\n- Medium (4-6"): $300-700\n- Large piece: $700-2000+\n- Half sleeve: $1500-4000\n\n**Try asking me about:**\n- "Best style for [your idea]"\n- "Pain level for [body part]"\n- "How much does a [type] tattoo cost?"\n- "Aftercare tips for new tattoo"\n- "Cover-up options for old tattoo"\n\nThe more specific you are, the better advice I can give!`;
 }
 
-function getResponses() {
-  // Site-specific response templates
-  return [
-  [["first", "beginner", "small", "minimalist"], `**First Tattoo Guide**
+function shareOnX(){const t=`${SHARE_TEXT}\n\nTry it free: https://${DOMAIN}?ref=${getRefCode()}\n\n@SpunkArt13`;window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(t)}`,'_blank');if(typeof gtag==='function')gtag('event','share_x',{bot:SLUG});}
+function copyResponse(btn){const t=btn.closest('.msg-bot').querySelector('div').textContent;navigator.clipboard.writeText(t).then(()=>{btn.textContent='Copied!';setTimeout(()=>btn.textContent='Copy',2000);});}
+function getRefCode(){let c=localStorage.getItem('aibot_ref_code');if(!c){c=SLUG+'_'+Math.random().toString(36).substring(2,10);localStorage.setItem('aibot_ref_code',c);}return c;}
+function shareRef(){const u=`https://${DOMAIN}?ref=${getRefCode()}`;navigator.clipboard.writeText(u).then(()=>alert('Referral link copied! Share it to earn 5 bonus uses.'));}
 
-**Best Placements for First Timers:**
-- Inner forearm (low pain, easy to show/hide)
-- Upper arm/shoulder (moderate pain, versatile)
-- Calf (low pain, good canvas)
-- Wrist (small pieces, visible)
+(function checkRef(){const p=new URLSearchParams(window.location.search);const r=p.get('ref');if(r&&!localStorage.getItem('aibot_ref_used')){const b=parseInt(localStorage.getItem('aibot_bonus')||'0');localStorage.setItem('aibot_bonus',b+REFERRAL_BONUS);localStorage.setItem('aibot_ref_used',r);if(typeof gtag==='function')gtag('event','referral_activated',{ref_code:r,bot:SLUG});}})();
 
-**Avoid for First Tattoo:**
-- Ribs, spine, feet, hands (HIGH pain areas)
-- Behind ear (trendy but limited space)
-- Stomach (changes with weight)
+let selectedPlan='month';
+function showPaywall(){document.getElementById('paywallModal').classList.add('active');selectPlan('month');}
+function closePaywall(){document.getElementById('paywallModal').classList.remove('active');}
+function selectPlan(p){selectedPlan=p;document.getElementById('planDay').style.borderColor=p==='day'?'var(--accent)':'var(--border)';document.getElementById('planMonth').style.borderColor=p==='month'?'var(--accent)':'var(--border)';}
+function payStripe(){alert('Stripe payments coming soon! For now, use crypto or contact @SpunkArt13 on X.');}
+function toggleCrypto(){document.getElementById('cryptoDetails').classList.toggle('active');}
+function copyAddr(el){navigator.clipboard.writeText(el.textContent).then(()=>{const o=el.textContent;el.textContent='Copied!';setTimeout(()=>el.textContent=o,2000);});}
 
-**Popular Minimalist Ideas:**
-- Fine line geometric shapes
-- Small floral (wildflower, lavender)
-- Single word or date in clean font
-- Mountain/wave/tree silhouette
-- Constellation or zodiac
-
-**Pricing:**
-- Shop minimum: $80-150
-- Small piece (2-3 inches): $100-250
-- Medium piece (4-6 inches): $250-500
-
-**Tips:**
-- Research artists whose STYLE matches what you want
-- Don't go cheap — you'll wear this forever
-- Tip your artist 20%
-- Follow aftercare instructions EXACTLY`],
-  [["style", "traditional", "realism", "watercolor", "blackwork"], `**Tattoo Style Guide**
-
-**Major Styles:**
-
-1. **Traditional (Old School)**: Bold outlines, limited palette (red, green, yellow, black). Iconic: eagles, roses, skulls. Ages best.
-
-2. **Neo-Traditional**: Traditional with more detail, shading, and color range. Modern take on classic motifs.
-
-3. **Realism**: Photorealistic portraits, nature, objects. Requires a VERY skilled artist. Expensive but stunning.
-
-4. **Blackwork**: Pure black ink. Geometric, tribal, ornamental. Clean and bold. Ages well.
-
-5. **Watercolor**: Splashy, painted look. Beautiful but controversial — may fade/blur faster. Needs touch-ups.
-
-6. **Fine Line**: Delicate, thin lines. Minimalist. Popular for small pieces. Can blur over time — find a specialist.
-
-7. **Japanese (Irezumi)**: Full sleeves/back pieces, koi, dragons, waves. One of the most respected traditions.
-
-8. **Dotwork**: Built entirely from dots. Geometric, mandala, stippled. Unique and mesmerizing.
-
-**Best Aging Styles:** Traditional > Japanese > Blackwork > Neo-Trad
-**Most Popular 2026:** Fine line, micro-realism, neo-traditional`]
-];
-}
-
-// ============================================================
-// SHARE & REFERRAL
-// ============================================================
-function shareOnX(preview) {
-  const text = `${SHARE_TEXT}\n\nTry it free: https://${DOMAIN}?ref=${getRefCode()}\n\n@SpunkArt13`;
-  window.open(`https://x.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
-  if (typeof gtag === 'function') gtag('event', 'share_x', { bot: SLUG });
-}
-
-function copyResponse(btn) {
-  const text = btn.closest('.msg-bot').querySelector('div').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 2000);
-  });
-}
-
-function getRefCode() {
-  let code = localStorage.getItem('aibot_ref_code');
-  if (!code) {
-    code = SLUG + '_' + Math.random().toString(36).substring(2, 10);
-    localStorage.setItem('aibot_ref_code', code);
-  }
-  return code;
-}
-
-function shareRef() {
-  const url = `https://${DOMAIN}?ref=${getRefCode()}`;
-  navigator.clipboard.writeText(url).then(() => alert('Referral link copied! Share it to earn 5 bonus uses.'));
-}
-
-// Check for referral on load
-(function checkRef() {
-  const params = new URLSearchParams(window.location.search);
-  const ref = params.get('ref');
-  if (ref && !localStorage.getItem('aibot_ref_used')) {
-    const bonus = parseInt(localStorage.getItem('aibot_bonus') || '0');
-    localStorage.setItem('aibot_bonus', bonus + REFERRAL_BONUS);
-    localStorage.setItem('aibot_ref_used', ref);
-    if (typeof gtag === 'function') gtag('event', 'referral_activated', { ref_code: ref, bot: SLUG });
-  }
-})();
-
-// ============================================================
-// PAYWALL
-// ============================================================
-let selectedPlan = 'month';
-
-function showPaywall() {
-  document.getElementById('paywallModal').classList.add('active');
-  selectPlan('month');
-}
-
-function closePaywall() {
-  document.getElementById('paywallModal').classList.remove('active');
-}
-
-function selectPlan(plan) {
-  selectedPlan = plan;
-  document.getElementById('planDay').style.borderColor = plan === 'day' ? 'var(--accent)' : 'var(--border)';
-  document.getElementById('planMonth').style.borderColor = plan === 'month' ? 'var(--accent)' : 'var(--border)';
-}
-
-function payStripe() {
-  // Placeholder — integrate Stripe Checkout
-  // window.location.href = `https://checkout.stripe.com/...?plan=${selectedPlan}`;
-  alert('Stripe payments coming soon! For now, use crypto or contact @SpunkArt13 on X.');
-}
-
-function toggleCrypto() {
-  document.getElementById('cryptoDetails').classList.toggle('active');
-}
-
-function copyAddr(el) {
-  navigator.clipboard.writeText(el.textContent).then(() => {
-    const orig = el.textContent;
-    el.textContent = 'Copied!';
-    setTimeout(() => el.textContent = orig, 2000);
-  });
-}
-
-// ============================================================
-// INIT
-// ============================================================
 updateUsageDisplay();
+inputEl.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}});
 
-inputEl.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
-
-// Referral tracking
-const urlParams = new URLSearchParams(window.location.search);
-const ref = urlParams.get('ref');
-if (ref) {
-  localStorage.setItem('aibot_ref', ref);
-  if (typeof gtag === 'function') gtag('event', 'referral_visit', { referral_code: ref, source: SLUG });
-}
+const urlParams=new URLSearchParams(window.location.search);
+const ref=urlParams.get('ref');
+if(ref){localStorage.setItem('aibot_ref',ref);if(typeof gtag==='function')gtag('event','referral_visit',{referral_code:ref,source:SLUG});}
 </script>
 </body>
 </html>
